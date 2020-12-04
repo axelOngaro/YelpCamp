@@ -26,8 +26,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/getcampground", async (req, res) => {
-  const camp = new Campground({ title: "First Campground" });
+  const camp = new Campground({
+    title: "Second camp",
+    description: "ugly camp but ok",
+  });
   await camp.save();
+  console.log(camp);
+  res.redirect("/");
 });
 
 app.listen(3000, () => {

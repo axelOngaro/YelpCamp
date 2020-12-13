@@ -70,6 +70,7 @@ app.post(
     //   throw new ExpressError("Invalid Campground Data", 400);
 
     const campground = new Campground(req.body.campground);
+    console.log(req.body.campground);
     await campground.save();
     res.redirect(`/campgrounds/${campground._id}`);
   })

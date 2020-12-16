@@ -13,15 +13,7 @@ const Review = require("../models/review");
 const { reviewSchema } = require("../schemas.js");
 
 //Validation middleware
-const validateReview = (req, res, next) => {
-  const { error } = reviewSchema.validate(req.body);
-  if (error) {
-    const msg = error.details.map((el) => el.message).joun(",");
-    throw new ExpressError(msg, 400);
-  } else {
-    next();
-  }
-};
+const { validateReview } = require("../middleware");
 
 //Routes
 router.post(

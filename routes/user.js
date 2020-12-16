@@ -40,6 +40,7 @@ router.post(
   (req, res) => {
     req.flash("success", "welcome back");
     const redirectUrl = req.session.returnTo || "/campgrounds";
+    delete req.session.returnTo;
     res.redirect(redirectUrl);
   }
 );
